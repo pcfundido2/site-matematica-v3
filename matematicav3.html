@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matemática Total | Ensino Médio Completo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3a0ca3;
+            --primary-light: #4361ee;
+            --secondary: #7209b7;
+            --accent: #f72585;
+            --dark: #14213d;
+            --light: #f8f9fa;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+            --danger: #ef233c;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+        
+        /* [Restante do CSS permanece igual ao exemplo anterior] */
+        /* Adicionar estilos específicos para novas seções abaixo */
+        
+        /* Grade de Anos/Séries */
+        .year-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .year-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border-top: 5px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .year-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .year-card h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .year-card .topics {
+            list-style-type: none;
+        }
+        
+        .year-card .topics li {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .year-card .topics li:before {
+            content: "→";
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+        
+        /* Seção de Livros */
+        .books-section {
+            background-color: #f0f8ff;
+            padding: 4rem 0;
+        }
+        
+        .book-card {
+            display: flex;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+            transition: var(--transition);
+            height: 100%;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .book-cover {
+            width: 150px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .book-info {
+            padding: 1.5rem;
+            flex: 1;
+        }
+        
+        .book-info h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .book-author {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .book-desc {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .book-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--dark-gray);
+        }
+        
+        .book-level {
+            background-color: var(--primary-light);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+        
+        /* Tabela de Conteúdo Completo */
+        .content-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .content-table th {
+            background-color: var(--primary);
+            color: white;
+            text-align: left;
+            padding: 1rem;
+        }
+        
+        .content-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+        
+        .content-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .content-table tr:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .topic-list {
+            list-style-type: none;
+        }
+        
+        .topic-list li {
+            padding: 0.3rem 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .topic-list li:before {
+            content: "•";
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+        
+        /* Responsividade para livros */
+        @media (max-width: 768px) {
+            .book-card {
+                flex-direction: column;
+            }
+            
+            .book-cover {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- [Header e Hero Section permanecem iguais ao exemplo anterior] -->
+
+    <!-- Grade de Anos/Séries -->
+    <section id="conteudo-completo">
+        <div class="container">
+            <h2>Conteúdo Completo do 6º ao 3º Ano</h2>
+            <p>Todo o programa de matemática do ensino fundamental II ao médio organizado por ano/série</p>
+            
+            <div class="year-grid">
+                <div class="year-card animate">
+                    <h3>6º Ano (Fundamental)</h3>
+                    <ul class="topics">
+                        <li>Sistema de numeração decimal</li>
+                        <li>Operações com números naturais</li>
+                        <li>Múltiplos e divisores</li>
+                        <li>Frações e operações</li>
+                        <li>Números decimais</li>
+                        <li>Geometria básica</li>
+                        <li>Perímetro e área</li>
+                        <li>Introdução à probabilidade</li>
+                    </ul>
+                </div>
+                
+                <div class="year-card animate delay-1">
+                    <h3>7º Ano (Fundamental)</h3>
+                    <ul class="topics">
+                        <li>Números inteiros</li>
+                        <li>Números racionais</li>
+                        <li>Expressões algébricas</li>
+                        <li>Equações do 1º grau</li>
+                        <li>Razões e proporções</li>
+                        <li>Porcentagem</li>
+                        <li>Ângulos e polígonos</li>
+                        <li>Circunferência e círculo</li>
+                    </ul>
+                </div>
+                
+                <div class="year-card animate delay-2">
+                    <h3>8º Ano (Fundamental)</h3>
+                    <ul class="topics">
+                        <li>Potenciação e radiciação</li>
+                        <li>Notação científica</li>
+                        <li>Sistemas de equações</li>
+                        <li>Teorema de Pitágoras</li>
+                        <li>Áreas de figuras planas</li>
+                        <li>Volume de sólidos</li>
+                        <li>Introdução à estatística</li>
+                        <li>Probabilidade básica</li>
+                    </ul>
+                </div>
+                
+                <div class="year-card animate delay-3">
+                    <h3>9º Ano (Fundamental)</h3>
+                    <ul class="topics">
+                        <li>Funções e gráficos</li>
+                        <li>Equações do 2º grau</li>
+                        <li>Sistemas lineares</li>
+                        <li>Trigonometria básica</li>
+                        <li>Semelhança de triângulos</li>
+                        <li>Relações métricas</li>
+                        <li>Análise combinatória</li>
+                        <li>Progressões aritméticas</li>
+                    </ul>
+                </div>
+                
+                <div class="year-card animate">
+                    <h3>1º Ano (Ensino Médio)</h3>
+                    <ul class="topics">
+                        <li>Conjuntos numéricos</li>
+                        <li>Funções: conceito e propriedades</li>
+                        <li>Função afim e quadrática</li>
+                        <li>Modular e exponencial</li>
+                        <li>Logaritmos</li>
+                        <li>Geometria analítica: ponto e reta</li>
+                        <li>Trigonometria no triângulo retângulo</li>
+                        <li>Introdução à estatística</li>
+                    </ul>
+                </div>
+                
+                <div class="year-card animate delay-1">
+                    <h3>2º Ano (Ensino Médio)</h3>
+                    <ul class="topics">
+                        <li>Função logarítmica</li>
+                        <li>Progressões (PA e PG)</li>
+                        <li>Matrizes e determinantes</li>
+                        <li>Sistemas lineares</li>
+                        <li>Geometria espacial</li>
+                        <li>Geometria analítica: circunferência</li>
+                        <li>Análise combinatória</li>
+                        <li>Probabilidade</li>
+                    </ul>
+                </div>
+                
+                <div class="year-card animate delay-2">
+                    <h3>3º Ano (Ensino Médio)</h3>
+                    <ul class="topics">
+                        <li>Polinômios</li>
+                        <li>Equações polinomiais</li>
+                        <li>Números complexos</li>
+                        <li>Geometria analítica: cônicas</li>
+                        <li>Introdução ao cálculo</li>
+                        <li>Limites e derivadas</li>
+                        <li>Estatística avançada</li>
+                        <li>Preparação para vestibulares</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabela de Conteúdo Detalhado -->
+    <section id="detalhamento" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2>Detalhamento do Conteúdo por Ano</h2>
+            <p>Veja todos os tópicos de matemática organizados por série/ano</p>
+            
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>Série/Ano</th>
+                        <th>Álgebra</th>
+                        <th>Geometria</th>
+                        <th>Análise de Dados</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>6º Ano</td>
+                        <td>
+                            <ul class="topic-list">
+                                <li>Operações fundamentais</li>
+                                <li>Múltiplos e divisores</li>
+                                <li>Frações e decimais</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="topic-list">
+                                <li>Figuras planas</li>
+                                <li>Perímetro e área</li>
+                                <li>Sólidos geométricos</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="topic-list">
+                                <li>Gráficos simples</li>
+                                <li>Média aritmética</li>
+                                <li>Probabilidade básica</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7º Ano</td>
+                        <td>
+                            <ul class="topic-list">
+                                <li>Números inteiros</li>
+                                <li>Expressões algébricas</li>
+                                <li>Equações do 1º grau</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="topic-list">
+                                <li>Ângulos</li>
+                                <li>Polígonos</li>
+                                <li>Circunferência</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="topic-list">
+                                <li>Proporcionalidade</li>
+                                <li>Porcentagem</li>
+                                <li>Gráficos de colunas</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <!-- [Linhas para 8º e 9º anos] -->
+                    <tr>
+                        <td>1º EM</td>
+                        <td>
+                            <ul class="topic-list">
+                                <li>Funções (afim, quadrática)</li>
+                                <li>Modular e exponencial</li>
+                                <li>Logaritmos</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="topic-list">
+                                <li>Geometria analítica</li>
+                                <li>Trigonometria</li>
+                                <li>Áreas e volumes</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="topic-list">
+                                <li>Estatística básica</li>
+                                <li>Medidas de tendência central</li>
+                                <li>Análise de gráficos</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <!-- [Linhas para 2º e 3º EM] -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Seção de Recomendações de Livros -->
+    <section id="livros" class="books-section">
+        <div class="container">
+            <h2>Biblioteca Matemática Recomendada</h2>
+            <p>Os melhores livros para aprender matemática em cada nível</p>
+            
+            <div class="grid grid-2">
+                <div class="book-card animate">
+                    <div class="book-cover" style="background-image: url('https://m.media-amazon.com/images/I/81X7RPFFpmL._AC_UF1000,1000_QL80_.jpg');"></div>
+                    <div class="book-info">
+                        <h4>Matemática Básica - Gelson Iezzi</h4>
+                        <div class="book-author">Gelson Iezzi, Carlos Murakami</div>
+                        <div class="book-desc">Cobre todo o conteúdo do ensino fundamental ao médio com teoria clara e muitos exercícios resolvidos.</div>
+                        <div class="book-meta">
+                            <span class="book-level">6º ao 9º Ano</span>
+                            <span><i class="fas fa-star"></i> 4.8/5</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="book-card animate delay-1">
+                    <div class="book-cover" style="background-image: url('https://m.media-amazon.com/images/I/71YHjVXyR0L._AC_UF1000,1000_QL80_.jpg');"></div>
+                    <div class="book-info">
+                        <h4>Fundamentos de Matemática Elementar (11 vols)</h4>
+                        <div class="book-author">Gelson Iezzi et al.</div>
+                        <div class="book-desc">Coleção completa que aborda todos os tópicos do ensino médio em profundidade.</div>
+                        <div class="book-meta">
+                            <span class="book-level">Ensino Médio</span>
+                            <span><i class="fas fa-star"></i> 4.9/5</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="book-card animate delay-2">
+                    <div class="book-cover" style="background-image: url('https://m.media-amazon.com/images/I/71Y4hUZJZJL._AC_UF1000,1000_QL80_.jpg');"></div>
+                    <div class="book-info">
+                        <h4>O Algebrista</h4>
+                        <div class="book-author">Laércio Vasconcelos</div>
+                        <div class="book-desc">Excelente para álgebra com abordagem prática e centenas de exercícios.</div>
+                        <div class="book-meta">
+                            <span class="book-level">8º Ano ao EM</span>
+                            <span><i class="fas fa-star"></i> 4.7/5</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="book-card animate delay-3">
+                    <div class="book-cover" style="background-image: url('https://m.media-amazon.com/images/I/71yZOKzi5BL._AC_UF1000,1000_QL80_.jpg');"></div>
+                    <div class="book-info">
+                        <h4>Matemática no Enem</h4>
+                        <div class="book-author">Fredão e Alexandre Vieira</div>
+                        <div class="book-desc">Focado na preparação para o ENEM com resumos teóricos e questões comentadas.</div>
+                        <div class="book-meta">
+                            <span class="book-level">3º Ano/Pré-Vest</span>
+                            <span><i class="fas fa-star"></i> 4.6/5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 3rem;">Livros por Categoria</h3>
+            
+            <div class="grid grid-3" style="margin-top: 2rem;">
+                <div class="card">
+                    <h4>Álgebra</h4>
+                    <ul class="topic-list">
+                        <li>Álgebra Moderna - Hygino Domingues</li>
+                        <li>Introdução à Álgebra - Adilson Gonçalves</li>
+                        <li>Álgebra Linear - Boldrini/Costa</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>Geometria</h4>
+                    <ul class="topic-list">
+                        <li>Geometria - Morgado</li>
+                        <li>Geometria Analítica - Steinbruch</li>
+                        <li>Geometria Euclidiana - João Lucas Barbosa</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>Pré-Cálculo</h4>
+                    <ul class="topic-list">
+                        <li>Pré-Cálculo - James Stewart</li>
+                        <li>Trigonometria - Gelson Iezzi</li>
+                        <li>Números Complexos - José Carlos Adán</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [Restante das seções anteriores permanecem] -->
+
+    <script>
+        // [Script anterior permanece]
+        
+        // Adicionar funcionalidade para filtro de livros
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filtro simples por nível (poderia ser expandido)
+            const filterButtons = document.querySelectorAll('.book-filter');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const level = this.getAttribute('data-level');
+                    document.querySelectorAll('.book-card').forEach(card => {
+                        if (level === 'all' || card.querySelector('.book-level').textContent.includes(level)) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
